@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment Update</title>
+    <style>
+      body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        background-color: #3f51b5;
+        color: #ffffff;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      form {
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 30px;
+        margin-top: 50px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"] {
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      input[type="submit"] {
+        background-color: #3f51b5;
+        border: none;
+        border-radius: 3px;
+        color: #ffffff;
+        cursor: pointer;
+        display: block;
+        font-size: 16px;
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Payment Update</h1>
+    <form action="update_payment" method="post">
+      {% csrf_token %}
+      <label for="paymentID">Payment ID:</label>
+      <input
+        type="text"
+        id="paymentID"
+        name="paymentID"
+        value="{{payment.paymentID}}"
+        disabled="False"
+      />
+
+      <label for="studentID">Student ID:</label>
+      <input
+        type="text"
+        id="studentID"
+        name="studentID"
+        value="{{payment.studentID}}"
+        required
+      />
+
+      <label for="payment_amount">Payment Amount:</label>
+      <input
+        type="text"
+        id="payment_amount"
+        name="payment_amount"
+        value="{{payment.payment_amount}}"
+        required
+      />
+
+      <label for="payment_date">Payment Date:</label>
+      <input
+        type="text"
+        id="payment_date"
+        name="payment_date"
+        value="{{payment.payment_date}}"
+        required
+      />
+
+      <input type="submit" value="SAVE" />
+    </form>
+  </body>
+</html>

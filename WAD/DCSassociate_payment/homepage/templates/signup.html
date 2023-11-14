@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up Page</title>
+    <style>
+      body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 300px;
+        padding-top: 50px;
+      }
+
+      .signup-form {
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        max-width: 400px;
+        padding: 30px;
+        margin-top: 50px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .form-control {
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      .submit-button {
+        background-color: #ffc107;
+        border: none;
+        border-radius: 3px;
+        color: #ffffff;
+        cursor: pointer;
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      .submit-button:hover {
+        background-color: #ffa000;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .logo {
+          max-width: 200px;
+          padding-top: 30px;
+        }
+
+        .signup-form {
+          max-width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      class="logo"
+      src="https://beranang.kpm.edu.my/kpmb/images/2021/anything/1marakpmb-merah.png"
+      alt="Kolej Profesional Mara Beranang"
+    />
+    <form class="signup-form" action="{% url 'signup' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="form-label" for="id">ID:</label>
+        <input class="form-control" type="text" id="id" name="id" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="username">Username:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password:</label>
+        <input
+          class="form-control"
+          type="password"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="name">Name:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
+      </div>
+
+      <button class="submit-button" type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>
